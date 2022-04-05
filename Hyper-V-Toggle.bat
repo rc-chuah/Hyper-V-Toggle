@@ -85,16 +85,12 @@ GOTO MENU
 CLS
 ECHO Enabling Hyper-V...
 ECHO.
-ECHO.
 bcdedit /set hypervisorlaunchtype auto
-ECHO.
-ECHO.
 ECHO.
 ECHO Hyper-V Status:
 ECHO -----------------------------
 bcdedit /enum | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
-ECHO.
 ECHO.
 GOTO REBOOT
 
@@ -103,16 +99,12 @@ GOTO REBOOT
 CLS
 ECHO Disabling Hyper-V...
 ECHO.
-ECHO.
 bcdedit /set hypervisorlaunchtype off
-ECHO.
-ECHO.
 ECHO.
 ECHO Hyper-V Status:
 ECHO -----------------------------
 bcdedit /enum | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
-ECHO.
 ECHO.
 GOTO REBOOT
 
