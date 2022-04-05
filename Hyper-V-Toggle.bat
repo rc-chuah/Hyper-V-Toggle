@@ -43,25 +43,25 @@ IF "%ERRORLEVEL%" NEQ "0" (
 SET VERSION=v1.0
 TITLE Hyper-V-Toggle %VERSION%
 CLS
-for /f "tokens=6 delims=[]. " %%G in ('ver') do set WINBUILD=%%G
+for /f "tokens=4-6 delims=[] " %%G in ('ver') do set WINVER=%%G
 ECHO .................................................................................
-:::     _    _                           __      __  _______                _
-:::    | |  | |                          \ \    / / |__   __|              | |
-:::    | |__| |_   _ _ __   ___ _ __ _____\ \  / /_____| | ___   __ _  __ _| | ___
-:::    |  __  | | | | '_ \ / _ \ '__|______\ \/ /______| |/ _ \ / _` |/ _` | |/ _ \
-:::    | |  | | |_| | |_) |  __/ |          \  /       | | (_) | (_| | (_| | |  __/
-:::    |_|  |_|\__, | .__/ \___|_|           \/        |_|\___/ \__, |\__, |_|\___|
-:::             __/ | |                                          __/ | __/ |
-:::            |___/|_|                                         |___/ |___/
+:::   _    _                           __      __  _______                _
+:::  | |  | |                          \ \    / / |__   __|              | |
+:::  | |__| |_   _ _ __   ___ _ __ _____\ \  / /_____| | ___   __ _  __ _| | ___
+:::  |  __  | | | | '_ \ / _ \ '__|______\ \/ /______| |/ _ \ / _` |/ _` | |/ _ \
+:::  | |  | | |_| | |_) |  __/ |          \  /       | | (_) | (_| | (_| | |  __/
+:::  |_|  |_|\__, | .__/ \___|_|           \/        |_|\___/ \__, |\__, |_|\___|
+:::           __/ | |                                          __/ | __/ |
+:::          |___/|_|                                         |___/ |___/
 :::
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 ECHO .................................................................................
 ECHO.
-ECHO  Hyper-V-Toggle %VERSION%
+ECHO Hyper-V-Toggle %VERSION%
 ECHO.
-ECHO  Windows Build: %WINBUILD%
+ECHO Windows Version: %WINVER%
 ECHO.
-ECHO  Hyper-V Status:
+ECHO Hyper-V Status:
 ECHO -----------------------------
 bcdedit /enum | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
@@ -86,11 +86,11 @@ CLS
 ECHO Enabling Hyper-V...
 ECHO.
 ECHO.
-Bcdedit /set hypervisorlaunchtype auto
+bcdedit /set hypervisorlaunchtype auto
 ECHO.
 ECHO.
 ECHO.
-ECHO  Hyper-V Status:
+ECHO Hyper-V Status:
 ECHO -----------------------------
 bcdedit /enum | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
@@ -104,11 +104,11 @@ CLS
 ECHO Disabling Hyper-V...
 ECHO.
 ECHO.
-Bcdedit /set hypervisorlaunchtype off
+bcdedit /set hypervisorlaunchtype off
 ECHO.
 ECHO.
 ECHO.
-ECHO  Hyper-V Status:
+ECHO Hyper-V Status:
 ECHO -----------------------------
 bcdedit /enum | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
@@ -136,11 +136,10 @@ ECHO  Without Uninstalling Windows Subsystem For Linux
 ECHO  (WSL) And Hyper-V Hypervisor Features In Windows.
 ECHO  Feel Free To Contribute On The Github Page.
 ECHO.
-ECHO  1 - Main Menu
+ECHO   1 - Main Menu
+ECHO   2 - Exit
 ECHO.
-ECHO  2 - Exit
-ECHO.
-ECHO ===========================================================
+ECHO ==========================================================
 ECHO.
 
 :: Options Set By User
