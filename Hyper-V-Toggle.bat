@@ -148,8 +148,8 @@ ECHO.
     IF /I "%O%" == "y" (
         CLS
         ECHO Reboot Initiated, Rebooting In 10 Seconds.
-        TIMEOUT 10
-        shutdown /r /t 5 /soft /c "Hyper-V-Toggle Reboot Procedure"
+        TIMEOUT 5 > NUL 2>&1
+        shutdown /r /t 10 /soft /c "Hyper-V-Toggle Reboot Procedure"
         ECHO  Rebooting in progress...
         ECHO.
         ECHO  Press Enter To Exit Hyper-V-Toggle.
@@ -160,7 +160,7 @@ ECHO.
     ELSE (
         CLS
         ECHO You Chose Not To Reboot Now, Reboot Later To Apply Changes.
-        TIMEOUT 5
+        TIMEOUT 5 > NUL 2>&1
         ECHO  Going Back To The Main Menu...
         ECHO.
         ECHO  Press Enter To Go Back To The Main Menu.
