@@ -63,7 +63,7 @@ ECHO Windows Version: %WINVER%
 ECHO.
 ECHO Hyper-V Status:
 ECHO -----------------------------
-bcdedit /enum | find /I "hypervisorlaunchtype"
+bcdedit /enum {default} | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
 ECHO.
 ECHO   1 - Enable Hyper-V
@@ -85,11 +85,11 @@ GOTO MENU
 CLS
 ECHO Enabling Hyper-V...
 ECHO.
-bcdedit /set hypervisorlaunchtype auto
+bcdedit /set {current} hypervisorlaunchtype auto
 ECHO.
 ECHO Hyper-V Status:
 ECHO -----------------------------
-bcdedit /enum | find /I "hypervisorlaunchtype"
+bcdedit /enum {default} | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
 ECHO.
 GOTO REBOOT
@@ -99,11 +99,11 @@ GOTO REBOOT
 CLS
 ECHO Disabling Hyper-V...
 ECHO.
-bcdedit /set hypervisorlaunchtype off
+bcdedit /set {current} hypervisorlaunchtype off
 ECHO.
 ECHO Hyper-V Status:
 ECHO -----------------------------
-bcdedit /enum | find /I "hypervisorlaunchtype"
+bcdedit /enum {default} | find /I "hypervisorlaunchtype"
 ECHO -----------------------------
 ECHO.
 GOTO REBOOT
