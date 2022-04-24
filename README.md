@@ -1,5 +1,5 @@
 # Hyper-V-Toggle
-This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other Virtualisation Tools Such As (VMware, VirtualBox) Simultaneously.
+This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other Virtualisation Tools Such As (VMware, VirtualBox) Simultaneously.
 
 ## Download
 [![GitHub All Releases](https://img.shields.io/github/downloads/rc-chuah/Hyper-V-Toggle/total?style=for-the-badge)](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest)
