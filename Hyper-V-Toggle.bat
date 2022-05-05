@@ -85,6 +85,7 @@ GOTO MENU
 CLS
 ECHO Enabling Hyper-V...
 ECHO.
+TIMEOUT 3 > NUL 2>&1
 bcdedit /set {current} hypervisorlaunchtype auto
 ECHO.
 ECHO Hyper-V Status:
@@ -99,6 +100,7 @@ GOTO REBOOT
 CLS
 ECHO Disabling Hyper-V...
 ECHO.
+TIMEOUT 3 > NUL 2>&1
 bcdedit /set {current} hypervisorlaunchtype off
 ECHO.
 ECHO Hyper-V Status:
@@ -148,7 +150,7 @@ ECHO.
     IF /I "%O%" == "y" (
         CLS
         ECHO Reboot Initiated, Rebooting In 10 Seconds.
-        TIMEOUT 5 > NUL 2>&1
+        TIMEOUT 3 > NUL 2>&1
         shutdown /r /t 10 /soft /c "Hyper-V-Toggle Reboot Procedure"
         ECHO  Rebooting in progress...
         ECHO.
@@ -160,7 +162,7 @@ ECHO.
     ELSE (
         CLS
         ECHO You Chose Not To Reboot Now, Reboot Later To Apply Changes.
-        TIMEOUT 5 > NUL 2>&1
+        TIMEOUT 3 > NUL 2>&1
         ECHO  Going Back To The Main Menu...
         ECHO.
         ECHO  Press Enter To Go Back To The Main Menu.
