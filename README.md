@@ -2,7 +2,8 @@
 This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other Virtualisation Tools Such As (VMware, VirtualBox) Simultaneously.
 
 ## Download
-[![GitHub All Releases](https://img.shields.io/github/downloads/rc-chuah/Hyper-V-Toggle/total?style=for-the-badge)](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest)
+[![GitHub All Releases](https://img.shields.io/github/downloads/rc-chuah/Hyper-V-Toggle/total?label=MIRROR%201%20DOWNLOADS&style=for-the-badge)](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest)
+[![GitHub All Releases](https://img.shields.io/github/downloads/RaynerSec/Hyper-V-Toggle/total?label=MIRROR%202%20DOWNLOADS&style=for-the-badge)](https://github.com/RaynerSec/Hyper-V-Toggle/releases/latest)
 
 ## Features
 ### This Tool Was Made For:
@@ -12,7 +13,7 @@ This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other V
 
 ## Usage
 ### How To Use Hyper-V-Toggle
-- [Download](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest) Hyper-V-Toggle.bat
+- [Download Mirror 1](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest) | [Download Mirror 2](https://github.com/RaynerSec/Hyper-V-Toggle/releases/latest) Hyper-V-Toggle.bat
 - Run Hyper-V-Toggle.bat
 - Accept The UAC Prompt
 - Follow On Screen Usage And You're Done
