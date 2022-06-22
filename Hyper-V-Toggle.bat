@@ -27,7 +27,6 @@ IF "%ERRORLEVEL%" NEQ "0" (
     ECHO Set UAC = CreateObject^("Shell.Application"^) >> "%TEMP%\getadmin.vbs"
     SET params= %*
     ECHO UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%TEMP%\getadmin.vbs"
-
     "%TEMP%\getadmin.vbs"
     DEL "%TEMP%\getadmin.vbs"
     EXIT /B
@@ -40,10 +39,11 @@ IF "%ERRORLEVEL%" NEQ "0" (
 
 :: Menu
 :MENU
-SET VERSION=v1.0
+SET VERSION=v1.0.1.0
 TITLE Hyper-V-Toggle %VERSION%
 CLS
 for /f "tokens=4-6 delims=[] " %%G in ('ver') do set WINVER=%%G
+for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
 ECHO .................................................................................
 :::   _    _                           __      __  _______                _
 :::  | |  | |                          \ \    / / |__   __|              | |
@@ -63,7 +63,13 @@ ECHO Windows Version: %WINVER%
 ECHO.
 ECHO Hyper-V Status:
 ECHO -----------------------------
-bcdedit /enum {default} | find /I "hypervisorlaunchtype"
+IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
+    ECHO hypervisorlaunchtype    Auto
+) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
+    ECHO hypervisorlaunchtype    Off
+) ELSE (
+    ECHO Unknown Hyper-V Status
+)
 ECHO -----------------------------
 ECHO.
 ECHO   1 - Enable Hyper-V
@@ -88,9 +94,16 @@ ECHO.
 TIMEOUT 3 > NUL 2>&1
 bcdedit /set {current} hypervisorlaunchtype auto
 ECHO.
+for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
 ECHO Hyper-V Status:
 ECHO -----------------------------
-bcdedit /enum {default} | find /I "hypervisorlaunchtype"
+IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
+    ECHO hypervisorlaunchtype    Auto
+) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
+    ECHO hypervisorlaunchtype    Off
+) ELSE (
+    ECHO Unknown Hyper-V Status
+)
 ECHO -----------------------------
 ECHO.
 GOTO REBOOT
@@ -103,9 +116,16 @@ ECHO.
 TIMEOUT 3 > NUL 2>&1
 bcdedit /set {current} hypervisorlaunchtype off
 ECHO.
+for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
 ECHO Hyper-V Status:
 ECHO -----------------------------
-bcdedit /enum {default} | find /I "hypervisorlaunchtype"
+IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
+    ECHO hypervisorlaunchtype    Auto
+) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
+    ECHO hypervisorlaunchtype    Off
+) ELSE (
+    ECHO Unknown Hyper-V Status
+)
 ECHO -----------------------------
 ECHO.
 GOTO REBOOT
