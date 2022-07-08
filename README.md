@@ -2,8 +2,8 @@
 This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other Virtualisation Tools Such As (VMware, VirtualBox) Simultaneously.
 
 ## Download
-[![GitHub All Releases](https://img.shields.io/github/downloads/rc-chuah/Hyper-V-Toggle/total?label=MIRROR%201%20DOWNLOADS&style=for-the-badge)](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest)
-[![GitHub All Releases](https://img.shields.io/github/downloads/RaynerSec/Hyper-V-Toggle/total?label=MIRROR%202%20DOWNLOADS&style=for-the-badge)](https://github.com/RaynerSec/Hyper-V-Toggle/releases/latest)
+[![GitHub All Releases](https://img.shields.io/github/downloads/rc-chuah/Hyper-V-Toggle/total?label=MIRROR%201%20DOWNLOADS&style=for-the-badge&color=brightgreen)](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest)
+[![GitHub All Releases](https://img.shields.io/github/downloads/RaynerSec/Hyper-V-Toggle/total?label=MIRROR%202%20DOWNLOADS&style=for-the-badge&color=brightgreen)](https://github.com/RaynerSec/Hyper-V-Toggle/releases/latest)
 
 ## Features
 ### This Tool Was Made For:
