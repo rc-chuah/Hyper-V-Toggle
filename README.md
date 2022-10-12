@@ -13,7 +13,7 @@ This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other V
 
 ## Usage
 ### How To Use Hyper-V-Toggle
-- Download Hyper-V-Toggle Batch File
+- Download Hyper-V-Toggle.bat
 - [Download Mirror 1](https://github.com/rc-chuah/Hyper-V-Toggle/releases/latest) | [Download Mirror 2](https://github.com/RaynerSec/Hyper-V-Toggle/releases/latest)
 - Run Hyper-V-Toggle.bat
 - Accept The UAC Prompt
