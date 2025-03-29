@@ -7,10 +7,12 @@ CLS
 :-------------------------------------
 :: Check For Permissions
 REM  --> Check For Permissions
-IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
+IF "%PROCESSOR_ARCHITECTURE%" EQU "arm64" (
+>nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
+) ELSE IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
 ) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+>nul 2>&1 "%SYSTEMROOT%\System32\cacls.exe" "%SYSTEMROOT%\System32\config\system"
 )
 
 :: Not Admin
@@ -44,7 +46,7 @@ TITLE Hyper-V-Toggle %VERSION%
 CLS
 for /f "tokens=4-6 delims=[] " %%G in ('ver') do set WINVER=%%G
 for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
-ECHO .................................................................................
+ECHO ....................................................................................
 :::   _    _                           __      __  _______                _
 :::  | |  | |                          \ \    / / |__   __|              | |
 :::  | |__| |_   _ _ __   ___ _ __ _____\ \  / /_____| | ___   __ _  __ _| | ___
@@ -53,16 +55,15 @@ ECHO ...........................................................................
 :::  |_|  |_|\__, | .__/ \___|_|           \/        |_|\___/ \__, |\__, |_|\___|
 :::           __/ | |                                          __/ | __/ |
 :::          |___/|_|                                         |___/ |___/
-:::
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
-ECHO .................................................................................
+ECHO ....................................................................................
 ECHO.
 ECHO Hyper-V-Toggle %VERSION%
 ECHO.
 ECHO Windows Version: %WINVER%
 ECHO.
 ECHO Hyper-V Status:
-ECHO -----------------------------
+ECHO -------------------------------
 IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
     ECHO hypervisorlaunchtype    Auto
 ) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
@@ -70,7 +71,7 @@ IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
 ) ELSE (
     ECHO Unknown Hyper-V Status
 )
-ECHO -----------------------------
+ECHO -------------------------------
 ECHO.
 ECHO   1 - Enable Hyper-V
 ECHO   2 - Disable Hyper-V
@@ -96,7 +97,7 @@ bcdedit /set {current} hypervisorlaunchtype auto
 ECHO.
 for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
 ECHO Hyper-V Status:
-ECHO -----------------------------
+ECHO -------------------------------
 IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
     ECHO hypervisorlaunchtype    Auto
 ) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
@@ -104,7 +105,7 @@ IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
 ) ELSE (
     ECHO Unknown Hyper-V Status
 )
-ECHO -----------------------------
+ECHO -------------------------------
 ECHO.
 GOTO REBOOT
 
@@ -118,7 +119,7 @@ bcdedit /set {current} hypervisorlaunchtype off
 ECHO.
 for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
 ECHO Hyper-V Status:
-ECHO -----------------------------
+ECHO -------------------------------
 IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
     ECHO hypervisorlaunchtype    Auto
 ) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
@@ -126,7 +127,7 @@ IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
 ) ELSE (
     ECHO Unknown Hyper-V Status
 )
-ECHO -----------------------------
+ECHO -------------------------------
 ECHO.
 GOTO REBOOT
 
