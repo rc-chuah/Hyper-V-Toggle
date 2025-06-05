@@ -18,3 +18,18 @@ This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other V
 - Run Hyper-V-Toggle.bat
 - Accept The UAC Prompt
 - Follow On Screen Usage And You're Done
+
+## Star History
+<a href="https://www.star-history.com/#rc-chuah/Hyper-V-Toggle&RaynerSec/Hyper-V-Toggle&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle,RaynerSec/Hyper-V-Toggle&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle,RaynerSec/Hyper-V-Toggle&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle,RaynerSec/Hyper-V-Toggle&type=Date" />
+ </picture>
+</a>
+
+## Stargazers Over Time (Mirror 1)
+[![Stargazers Over Time](https://starchart.cc/rc-chuah/Hyper-V-Toggle.svg?variant=adaptive)](https://starchart.cc/rc-chuah/Hyper-V-Toggle)
+
+## Stargazers Over Time (Mirror 2)
+[![Stargazers Over Time](https://starchart.cc/RaynerSec/Hyper-V-Toggle.svg?variant=adaptive)](https://starchart.cc/RaynerSec/Hyper-V-Toggle)
