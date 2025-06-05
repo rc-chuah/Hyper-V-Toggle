@@ -7,13 +7,7 @@ CLS
 :-------------------------------------
 :: Check For Permissions
 REM  --> Check For Permissions
-IF "%PROCESSOR_ARCHITECTURE%" EQU "arm64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE (
->nul 2>&1 "%SYSTEMROOT%\System32\cacls.exe" "%SYSTEMROOT%\System32\config\system"
-)
+FLTMC > NUL 2>&1
 
 :: Not Admin
 :: If Error Flag Set, We Do Not Have Admin.
@@ -22,7 +16,9 @@ IF "%ERRORLEVEL%" NEQ "0" (
     :: Now Escalating Privileges
     ECHO Requesting Administrative Privileges...
     GOTO UACPrompt
-) ELSE ( GOTO GotAdmin )
+) ELSE (
+    GOTO GotAdmin
+)
 
 :: UAC Prompt
 :UACPrompt
@@ -63,15 +59,15 @@ ECHO.
 ECHO Windows Version: %WINVER%
 ECHO.
 ECHO Hyper-V Status:
-ECHO -------------------------------
-IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
+ECHO ---------------------------------------
+IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    Auto" (
     ECHO hypervisorlaunchtype    Auto
-) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
+) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    Off" (
     ECHO hypervisorlaunchtype    Off
 ) ELSE (
     ECHO Unknown Hyper-V Status
 )
-ECHO -------------------------------
+ECHO ---------------------------------------
 ECHO.
 ECHO   1 - Enable Hyper-V
 ECHO   2 - Disable Hyper-V
@@ -97,15 +93,15 @@ bcdedit /set {current} hypervisorlaunchtype auto
 ECHO.
 for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
 ECHO Hyper-V Status:
-ECHO -------------------------------
-IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
+ECHO ---------------------------------------
+IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    Auto" (
     ECHO hypervisorlaunchtype    Auto
-) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
+) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    Off" (
     ECHO hypervisorlaunchtype    Off
 ) ELSE (
     ECHO Unknown Hyper-V Status
 )
-ECHO -------------------------------
+ECHO ---------------------------------------
 ECHO.
 GOTO REBOOT
 
@@ -119,15 +115,15 @@ bcdedit /set {current} hypervisorlaunchtype off
 ECHO.
 for /f "tokens=*" %%G in ('bcdedit /enum {default} ^| find /I "hypervisorlaunchtype"') do set HYPERVSTATUS=%%G
 ECHO Hyper-V Status:
-ECHO -------------------------------
-IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    auto" (
+ECHO ---------------------------------------
+IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    Auto" (
     ECHO hypervisorlaunchtype    Auto
-) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    off" (
+) ELSE IF /I "%HYPERVSTATUS%" == "hypervisorlaunchtype    Off" (
     ECHO hypervisorlaunchtype    Off
 ) ELSE (
     ECHO Unknown Hyper-V Status
 )
-ECHO -------------------------------
+ECHO ---------------------------------------
 ECHO.
 GOTO REBOOT
 
@@ -173,9 +169,11 @@ ECHO.
         ECHO Reboot Initiated, Rebooting In 10 Seconds.
         TIMEOUT 3 > NUL 2>&1
         shutdown /r /t 10 /soft /c "Hyper-V-Toggle Reboot Procedure"
-        ECHO  Rebooting In Progress...
+        ECHO Rebooting In Progress...
         ECHO.
-        ECHO  Press Enter To Exit Hyper-V-Toggle.
+        ECHO Press Enter To Exit Hyper-V-Toggle.
+        ECHO.
+        ECHO Thank You For Using This Script, Have A Nice Day :)
         ECHO.
         PAUSE
         EXIT /B %ERRORLEVEL%
@@ -184,9 +182,11 @@ ECHO.
         CLS
         ECHO You Chose Not To Reboot Now, Reboot Later To Apply Changes.
         TIMEOUT 3 > NUL 2>&1
-        ECHO  Going Back To The Main Menu...
+        ECHO Going Back To The Main Menu...
         ECHO.
-        ECHO  Press Enter To Go Back To The Main Menu.
+        ECHO Press Enter To Go Back To The Main Menu.
+        ECHO.
+        ECHO Thank You For Using This Script, Have A Nice Day :)
         ECHO.
         PAUSE
         GOTO MENU
