@@ -19,12 +19,21 @@ This Batch Script Enables And Disables Hyper-V Hypervisor So You Can Use Other V
 - Accept The UAC Prompt
 - Follow On Screen Usage And You're Done
 
-## Star History
-<a href="https://www.star-history.com/#rc-chuah/Hyper-V-Toggle&RaynerSec/Hyper-V-Toggle&Date">
+## Star History (Mirror 1)
+<a href="https://www.star-history.com/#rc-chuah/Hyper-V-Toggle&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle,RaynerSec/Hyper-V-Toggle&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle,RaynerSec/Hyper-V-Toggle&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle,RaynerSec/Hyper-V-Toggle&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=rc-chuah/Hyper-V-Toggle&type=Date" />
+ </picture>
+</a>
+
+## Star History (Mirror 2)
+<a href="https://www.star-history.com/#RaynerSec/Hyper-V-Toggle&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=RaynerSec/Hyper-V-Toggle&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=RaynerSec/Hyper-V-Toggle&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=RaynerSec/Hyper-V-Toggle&type=Date" />
  </picture>
 </a>
 
